@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-headline: "Syne", "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --color-bg: #08040c;
+  --color-surface: #140a16;
+  --color-surface-2: #1e101f;
+  --color-fg: #f4eaf6;
+  --color-muted: #b79bbd;
+  --color-subtle: #8a6e90;
+  --color-primary: #ff3d86;
+  --color-primary-fg: #1a0810;
+  --color-accent: #e6c36a;
+  --color-accent-fg: #1a1204;
+  --color-lilac: #cbb0ea;
+  --color-plum: #3a1838;
+  --color-border: rgb(244 234 246 / 0.1);
+  --color-ring: #ff3d86;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.75rem;
+
+  --shadow-card: 0 0 0 1px rgb(244 234 246 / 0.08);
+  --shadow-card-hover: 0 0 0 1px rgb(244 234 246 / 0.14);
+
+  --ease-out-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background-color: var(--color-bg);
+    background-image: radial-gradient(
+      ellipse 90% 46% at 50% -8%,
+      color-mix(in oklab, var(--color-plum) 58%, transparent),
+      transparent 72%
+    );
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-headline);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-fg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
